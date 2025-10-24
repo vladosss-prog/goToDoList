@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.PageTitle}}</title>
+</head>
+<body>
+        <fieldset>
+            <legend>Задачи:</legend>
+    {{range .Todos}}
+        {{if .Done}}
+            <div>
+                <input type="checkbox" id="scales" name="scales" checked/>
+                <label for="scales">{{.Title}}</label>
+            </div>
+        {{else}}
+            <div>
+                <input type="checkbox" id="scales" name="scales"/>
+                <label for="scales">{{.Title}}</label>
+            </div>
+        {{end}}
+    {{end}}
+        </fieldset>
+    <form method="post">
+        <label>Добавить новую задачу:</label><br />
+        <input type="text" name="task">
+    </form>
+</body>
+</html>
