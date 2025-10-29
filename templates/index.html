@@ -6,25 +6,18 @@
     <title>{{.PageTitle}}</title>
 </head>
 <body>
-        <fieldset>
-            <legend>Задачи:</legend>
-    {{range .Todos}}
-        {{if .Done}}
-            <div>
-                <input type="checkbox" id="scales" name="scales" checked/>
-                <label for="scales">{{.Title}}</label>
-            </div>
-        {{else}}
-            <div>
-                <input type="checkbox" id="scales" name="scales"/>
-                <label for="scales">{{.Title}}</label>
-            </div>
-        {{end}}
-    {{end}}
-        </fieldset>
     <form method="post">
-        <label>Добавить новую задачу:</label><br />
-        <input type="text" name="task">
+            <fieldset>
+                <legend>Задачи:</legend>
+        {{range .Todos}}
+                <div>
+                    <input type="checkbox" id="{{.ID}}" name="{{.ID}}" {{if .Done}}checked{{end}}/>
+                    <label>{{.Title}}</label>
+                </div>
+        {{end}}
+            </fieldset>
+            <label>Добавить новую задачу:</label><br />
+            <input type="text" name="task">
     </form>
 </body>
 </html>
